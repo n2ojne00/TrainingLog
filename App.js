@@ -6,6 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Training app</Text>
+      
       <SetSkill/>
     </View>
   );
