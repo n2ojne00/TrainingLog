@@ -7,3 +7,27 @@
         <Button title ='SWIM' 
       onPress={() => console.log("button pressed3")}
       color={"#faeebb"} style={{flex: 3}}/>
+
+IF NOT GOING AS PLANNED HEHE
+    <TouchableOpacity 
+      onPress={onPress}
+       style={{flex: 2, backgroundColor: '#e2e8fc'}}>
+     <MaterialIcons name="downhill-skiing" size={24} color="black" />
+     <Text>SKI</Text>
+     </TouchableOpacity>
+
+
+      <TouchableOpacity
+      onPress={() => console.log("button pressed2")}
+       style={{flex: 2, backgroundColor: '#e2e8fc'}}>
+     <MaterialCommunityIcons name="run-fast" size={24} color="black" />
+     <Text>RUN</Text>
+     </TouchableOpacity>
+
+
+      <TouchableOpacity
+      onPress={() => console.log("button pressed3")}
+       style={{flex: 2, backgroundColor: '#e2e8fc'}}>
+     <FontAwesome6 name="person-swimming" size={24} color="black" />
+     <Text>SWIM</Text>
+     </TouchableOpacity>
