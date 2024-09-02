@@ -1,0 +1,9 @@
+  <Button title ='RUN' 
+      onPress={() => {onPress}}
+      color={"#7e80fd"} style={{flex: 1}}/>
+        <Button title ='SKI' 
+      onPress={() => console.log("button pressed2")}
+      color={"#a6fd7e"} style={{flex: 2}}/>
+        <Button title ='SWIM' 
+      onPress={() => console.log("button pressed3")}
+      color={"#faeebb"} style={{flex: 3}}/>
