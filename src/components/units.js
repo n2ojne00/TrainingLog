@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RadioGroup from 'react-native-radio-buttons-group';
 
@@ -30,13 +30,5 @@ const styles = StyleSheet.create({
         padding: 10,
         width: 200,
         borderWidth: 1,     
-    },
-
-    radio: {
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end',
-        borderWidth: 1,
-        borderColor: 'red'
     }
-
 });

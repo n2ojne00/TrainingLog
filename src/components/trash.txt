@@ -1,0 +1,73 @@
+  <Button title ='RUN' 
+      onPress={() => {onPress}}
+      color={"#7e80fd"} style={{flex: 1}}/>
+        <Button title ='SKI' 
+      onPress={() => console.log("button pressed2")}
+      color={"#a6fd7e"} style={{flex: 2}}/>
+        <Button title ='SWIM' 
+      onPress={() => console.log("button pressed3")}
+      color={"#faeebb"} style={{flex: 3}}/>
+
+IF NOT GOING AS PLANNED HEHE
+    <TouchableOpacity 
+      onPress={onPress}
+       style={{flex: 2, backgroundColor: '#e2e8fc'}}>
+     <MaterialIcons name="downhill-skiing" size={24} color="black" />
+     <Text>SKI</Text>
+     </TouchableOpacity>
+
+
+      <TouchableOpacity
+      onPress={() => console.log("button pressed2")}
+       style={{flex: 2, backgroundColor: '#e2e8fc'}}>
+     <MaterialCommunityIcons name="run-fast" size={24} color="black" />
+     <Text>RUN</Text>
+     </TouchableOpacity>
+
+
+      <TouchableOpacity
+      onPress={() => console.log("button pressed3")}
+       style={{flex: 2, backgroundColor: '#e2e8fc'}}>
+     <FontAwesome6 name="person-swimming" size={24} color="black" />
+     <Text>SWIM</Text>
+     </TouchableOpacity>
+
+     HOW TO BUILD MY FILE STRUCTURE
+     src/
+├── components/
+│   ├── Button.js
+│   ├── TextInput.js
+│   └── index.js
+├── features/
+│   ├── Auth/
+│   │   ├── LoginScreen.js
+│   │   ├── RegisterScreen.js
+│   │   └── authStyles.js
+│   ├── Profile/
+│   │   ├── ProfileScreen.js
+│   │   └── profileStyles.js
+│   └── Home/
+│       ├── HomeScreen.js
+│       └── homeStyles.js
+├── navigation/
+│   ├── AppNavigator.js
+│   └── AuthNavigator.js
+├── services/
+│   ├── apiService.js
+│   ├── authService.js
+│   └── storageService.js
+├── hooks/
+│   ├── useAuth.js
+│   └── useFetch.js
+├── utils/
+│   ├── helpers.js
+│   ├── constants.js
+│   └── validation.js
+├── assets/
+│   ├── images/
+│   ├── fonts/
+│   └── icons/
+└── styles/
+    ├── globalStyles.js
+    ├── colors.js
+    └── typography.js
