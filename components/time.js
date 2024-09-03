@@ -4,9 +4,9 @@ import React from 'react';
 
 
 
-export default function Distance() {
+export default function Duration() {
 
-        const [dist_number, onChangeDistance] = React.useState('');
+        const [timerNumber, onChangeTimer] = React.useState('');
     
   
     return (
@@ -15,9 +15,9 @@ export default function Distance() {
       
       <TextInput
         style={styles.input}
-        onChangeText={onChangeDistance}
-        value={dist_number}
-        placeholder="distance"
+        onChangeText={onChangeTimer}
+        value={timerNumber}
+        placeholder="Duration"
         keyboardType="numeric"
       />
       
