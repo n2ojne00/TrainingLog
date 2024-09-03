@@ -4,30 +4,22 @@ import RadioGroup from 'react-native-radio-buttons-group';
 
 export default function SetUnits() {
 
-    const setUnit = useMemo(() => ([
-        {
-            id: '1', // acts as primary key, should be unique and non-empty string
-            label: 'Kilometers',
-            value: 'kilometers'
-        },
-        {
-            id: '2',
-            label: 'Miles',
-            value: 'miles'
-        }
-    ]), []);
-
     const [selectedUnit, setSelectedUnit] = useState();
 
     return (
 
     <View style={styles.container}>
-     <Text>Change unit</Text>       
-        <RadioGroup style={styles.radio}
-            radioButtons={setUnit} 
-            onPress={setSelectedUnit}
-            selectedId={selectedUnit}
-        />
+     <Text  style={styles.text}>Change unit</Text>
+            <View style={styles.radio}>
+                <RadioGroup
+                    radioButtons={[
+                        { id: '1', label: 'Kilometers', value: 'kilometers' },
+                        { id: '2', label: 'Miles', value: 'miles' },
+                    ]}
+                    onPress={setSelectedUnit}
+                    selectedId={selectedUnit}
+                />
+            </View>
     </View>
     );
 
@@ -35,12 +27,16 @@ export default function SetUnits() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        padding: 10,
         width: 200,
-        borderWidth: 1,
-        alignItems: 'flex-start', // Aligns all child components to the left
+        borderWidth: 1,     
     },
+
     radio: {
-        alignSelf: 'flex-start', // Ensures RadioGroup is aligned to the left
-    },
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        borderWidth: 1,
+        borderColor: 'red'
+    }
+
 });
