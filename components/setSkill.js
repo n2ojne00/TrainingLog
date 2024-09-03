@@ -56,7 +56,7 @@ const [selectedButton, setSelectedButton] = useState(null);
       
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
