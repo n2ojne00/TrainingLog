@@ -9,7 +9,6 @@ export default function ChooseDate() {
     const [calendarVisible, setCalendarVisible] = useState(false);
     const [date, setDate] = useState();
 
-    //const [chosenDate, setChosenDate] = useState(new Date());
     function dateSelected(day) {
         setCalendarVisible(false);
         setDate(day);
@@ -24,46 +23,44 @@ export default function ChooseDate() {
         visible={calendarVisible}
         onRequestClose={() => setCalendarVisible(!calendarVisible)}
         >
-        <Calendar style={styles.calendar} onDayPress={dateSelected}/>
-            <View style={styles.calendarContests}>
-                <View style={styles.calendarButton}>
-                    <Button title="Close calendar" onPress={() => setCalendarVisible(false)}/> 
-                </View>
+            <View style={styles.calendarButton}>
+                <Calendar 
+                style={styles.calendar} 
+                onDayPress={dateSelected}
+                />
+                   
+                <Button 
+                title="Close calendar" 
+                onPress={() => setCalendarVisible(false)}
+                /> 
             </View>
-
         </Modal>
 
         <View>
         <Pressable onPress={() => setCalendarVisible(true)} style={styles.setTime}>
-            <FontAwesome name="calendar" size={24} color="black" />
-            <Text style={{fontSize: 24}} >{date? date.dateString : 'Select date'}</Text>
-        </Pressable>
-       
             
+            <Text style={{fontSize: 24}} >
+                <FontAwesome name="calendar" size={24} color="black"/>
+                {date? date.dateString : ' Select date'}
+            </Text>
+
+        </Pressable>           
         </View>
 
-        </View>
+    </View>
     )
 };
 
 const styles = StyleSheet.create({
-    calendarContests: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: "#24ffdd",
-
-    },
     calendarButton: {
-        width: '80%',
-        height: '50%',
-        backgroundColor: "#148d7b",
-        alignItems: 'center',
+        height: '100%',
+        backgroundColor: "#473729a4",
         justifyContent: 'center'
 
     },
     calendar: { 
         borderWidth: 2,
+        
     },
     setTime: {
         borderWidth: 2,

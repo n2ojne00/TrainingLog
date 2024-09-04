@@ -1,25 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import SetSkill from './src/components/setSkill';
-import Distance from './src/components/distance';
-import Duration from './src/components/time';
-import ChooseDate from './src/components/calendar';
-import SetUnits from './src/components/units';
+import FrontPage from './src/screens/frontpage';
+
+//import TrainingLog from './src/screens/traininglog';
+//import Settings from './src/screens/settings';
+
+/**
+ *     <TrainingLog/>
+     <Settings/>
+
+ */
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Training app</Text>
 
-      <SetSkill/>
-      
-      <Distance/>
-      <Duration/>
-
-      <ChooseDate/>
-
-      <SetUnits/>
-
+     <FrontPage/>
 
 
       
