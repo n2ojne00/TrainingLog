@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import FrontPage from './src/screens/frontpage';
+import Navigation from './Navigation';
+
 
 //import TrainingLog from './src/screens/traininglog';
 //import Settings from './src/screens/settings';
@@ -8,17 +9,15 @@ import FrontPage from './src/screens/frontpage';
 /**
  *     <TrainingLog/>
      <Settings/>
+     <FrontPage/>
 
  */
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Training app</Text>
-
-     <FrontPage/>
-
-
+   <Text>HI</Text>
+     <Navigation/>
       
     </View>
   );
