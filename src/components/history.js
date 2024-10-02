@@ -1,8 +1,7 @@
-//testing
 
 import { View } from "react-native"
 
-export default History() {
+export default function History() {
     return (
         <View>
         </View>

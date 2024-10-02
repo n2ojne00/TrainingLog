@@ -4,16 +4,16 @@ export default function FrontPage() {
     return (
 
         <View style={[styles.container, { flexDirection: 'row' }]}>
-        <Pressable style={styles.box} ><Text>NEW TRAINING</Text></Pressable>
-        <Pressable style={styles.box}><Text>MY HISTORY</Text></Pressable>
-        <Pressable style={styles.box}><Text>SETTINGS</Text></Pressable>
+            <Text>
+                Welcome for our sport tracking app. 
+                Here you can add your trainings and check history.
+            </Text>
         </View>
-
 
     );
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     container: {
         borderWidth: 2,
         width: '90%',

@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { Button, View } from "react-native"
 import ChooseDate from "../components/calendar"
 import Distance from "../components/distance"
 import SetSkill from "../components/setSkill"
@@ -13,6 +13,11 @@ export default function TrainingLog() {
         <Distance/>
         <Duration/>
         <ChooseDate/>
+
+        <Button 
+        title="ADD SPORT"
+        >
+        </Button>
     </View>
     );
 }

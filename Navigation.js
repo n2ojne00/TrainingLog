@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import TrainingLog from './src/screens/traininglog';
 import FrontPage from './src/screens/frontpage';
 import Settings from './src/screens/settings';
-import { ICONS } from './styles.js/icons';
+import { ICONS } from './src/styles.js/icons';
 import { StyleSheet, Text } from 'react-native';
 import { View } from 'react-native';
 
@@ -11,7 +11,7 @@ import { View } from 'react-native';
 const Tab = createBottomTabNavigator();
 
 export default function NavigationBar() {
-    
+
 
     // Find the 'settings' logo from ICONS array
     const settingsIcon = ICONS.find(icon => icon.logoname === 'settings').logo;
@@ -20,41 +20,44 @@ export default function NavigationBar() {
     const homeIcon = ICONS.find(icon => icon.logoname === 'home').logo;
 
     return (
-    <NavigationContainer>
-        <Tab.Navigator>
-            <Tab.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{
-                    headerTitle: () => homeIcon
-                 
-                  }}/>
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{
+                        headerTitle: () => homeIcon,
+                        tabBarIcon: () => homeIcon
 
-            <Tab.Screen
-                name="History"
-                component={History}
-                options={{
-                    headerTitle: () => historyIcon
-                    
-                  }}/>
+                    }} />
 
-            <Tab.Screen
-                name="AddSport"
-                component={LogTraining}
-                options={{
-                    headerTitle: () => AddSportIcon
-              
-                  }}/>
+                <Tab.Screen
+                    name="History"
+                    component={History}
+                    options={{
+                        headerTitle: () => historyIcon,
+                        tabBarIcon: () => historyIcon
+                    }} />
 
-            <Tab.Screen
-                name="Settings"
-                component={SettingsPage}
-                options={{
-                    headerTitle: () => settingsIcon
-                  }}/>
+                <Tab.Screen
+                    name="Sport Log"
+                    component={LogTraining}
+                    options={{
+                        headerTitle: () => AddSportIcon,
+                        tabBarIcon: () => AddSportIcon
 
-        </Tab.Navigator>
-    </NavigationContainer>
+                    }} />
+
+                <Tab.Screen
+                    name="Settings"
+                    component={SettingsPage}
+                    options={{
+                        headerTitle: () => settingsIcon,
+                        tabBarIcon: () => settingsIcon
+                    }} />
+
+            </Tab.Navigator>
+        </NavigationContainer>
     );
 }
 // Sample screens

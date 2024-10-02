@@ -3,6 +3,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from 'react';
+import { ICONS } from '../styles.js/icons';
 
 export default function SetSkill() {
 
@@ -46,6 +47,7 @@ const [selectedButton, setSelectedButton] = useState(null);
       <TouchableOpacity
         onPress={() => handlePress(3)}
         style={[
+          
           styles.button,
           selectedButton === 3 && styles.selectedButton
         ]}
