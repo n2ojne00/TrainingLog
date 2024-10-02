@@ -1,17 +1,17 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import TrainingLog from './src/screens/traininglog';
 import FrontPage from './src/screens/frontpage';
 import Settings from './src/screens/settings';
 import { ICONS } from './styles.js/icons';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
+import { View } from 'react-native';
 
 
+const Tab = createBottomTabNavigator();
 
-
-const Stack = createNativeStackNavigator();
-
-export default function Navigation() {
+export default function NavigationBar() {
+    
 
     // Find the 'settings' logo from ICONS array
     const settingsIcon = ICONS.find(icon => icon.logoname === 'settings').logo;
@@ -19,9 +19,10 @@ export default function Navigation() {
     const AddSportIcon = ICONS.find(icon => icon.logoname === 'setSkill').logo;
     const homeIcon = ICONS.find(icon => icon.logoname === 'home').logo;
 
+    return (
     <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen
+        <Tab.Navigator>
+            <Tab.Screen
                 name="Home"
                 component={HomeScreen}
                 options={{
@@ -29,7 +30,7 @@ export default function Navigation() {
                  
                   }}/>
 
-            <Stack.Screen
+            <Tab.Screen
                 name="History"
                 component={History}
                 options={{
@@ -37,7 +38,7 @@ export default function Navigation() {
                     
                   }}/>
 
-            <Stack.Screen
+            <Tab.Screen
                 name="AddSport"
                 component={LogTraining}
                 options={{
@@ -45,15 +46,16 @@ export default function Navigation() {
               
                   }}/>
 
-            <Stack.Screen
+            <Tab.Screen
                 name="Settings"
                 component={SettingsPage}
                 options={{
                     headerTitle: () => settingsIcon
                   }}/>
 
-        </Stack.Navigator>
+        </Tab.Navigator>
     </NavigationContainer>
+    );
 }
 // Sample screens
 const HomeScreen = () => (
