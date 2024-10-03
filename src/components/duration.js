@@ -1,31 +1,22 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import { SafeAreaView, StyleSheet, Text, TextInput } from "react-native";
 import React from 'react';
 
+export default function Duration() { // Receive props from parent
 
+    const [duration, onChangeDuration] = React.useState('');
 
-export default function Distance() {
-
-        const [dist_number, onChangeDistance] = React.useState('');
-
-    return (
-    
+  return (
     <SafeAreaView>
-      
       <TextInput
         style={styles.input}
-        onChangeText={onChangeDistance}
-        value={dist_number}
-        placeholder="distance"
+        onChangeText={onChangeDuration} // Update parent component's state with input
+        value={duration} // Display the current duration value from parent
+        placeholder="Duration"
         keyboardType="numeric"
       />
-      
     </SafeAreaView>
-
-    
-    );
-
-};
+  );
+}
 
 const styles = StyleSheet.create({
   input: {
