@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, TextInput } from "react-native";
+import { View, StyleSheet,TextInput } from "react-native";
 import React from 'react';
 
 export default function Duration() { // Receive props from parent
@@ -6,7 +6,7 @@ export default function Duration() { // Receive props from parent
     const [duration, onChangeDuration] = React.useState('');
 
   return (
-    <SafeAreaView>
+    <View>
       <TextInput
         style={styles.input}
         onChangeText={onChangeDuration} // Update parent component's state with input
@@ -14,7 +14,7 @@ export default function Duration() { // Receive props from parent
         placeholder="Duration"
         keyboardType="numeric"
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

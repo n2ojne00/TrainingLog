@@ -16,7 +16,7 @@ export default function Distance() {
         style={styles.input}
         onChangeText={onChangeDistance}
         value={dist_number}
-        placeholder="distance"
+        placeholder="Distance"
         keyboardType="numeric"
       />
       

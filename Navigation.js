@@ -6,6 +6,7 @@ import Settings from './src/screens/settings';
 import { ICONS } from './src/styles.js/icons';
 import { StyleSheet, Text } from 'react-native';
 import { View } from 'react-native';
+import UserForm from './src/screens/newtraining';
 
 
 const Tab = createBottomTabNavigator();
@@ -71,14 +72,14 @@ const HomeScreen = () => (
 const History = () => (
     <View style={styles.screenContainer}>
         <Text>History Screen</Text>
-        {/* <History/> */}
+        
     </View>
 );
 
 const LogTraining = () => (
     <View style={styles.screenContainer}>
         <Text>Log Training Screen</Text>
-        <TrainingLog />
+        <UserForm/> 
     </View>
 );
 

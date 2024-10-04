@@ -5,8 +5,10 @@ export default function FrontPage() {
 
         <View style={[styles.container, { flexDirection: 'row' }]}>
             <Text>
-                Welcome for our sport tracking app. 
-                Here you can add your trainings and check history.
+            Your journey to peak performance starts here! 
+            With our app, you can effortlessly track your training sessions, 
+            analyze your history, and stay motivated every step of the way. 
+            Join our community of athletes and make every workout count!
             </Text>
         </View>
 
@@ -15,14 +17,11 @@ export default function FrontPage() {
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 2,
         width: '90%',
         justifyContent: 'center'
     },
     box: {
-        borderWidth: 2,
-        borderColor: '#5f6d26',
-        margin: '5%',
+        margin: '10%',
         padding: 10
     }
 })
