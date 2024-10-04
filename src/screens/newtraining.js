@@ -1,56 +1,49 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, Alert } from 'react-native';
-
-import DateTimePicker from '@react-native-community/datetimepicker'; // Ensure you import DateTimePicker
+import { View, Text, Button, FlatList, Alert } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import ChooseDate from '../components/calendar';
 import SetSkill from '../components/setSkill';
+import Duration from '../components/duration'; 
+import Distance from '../components/distance';
 
 const UserForm = () => {
     const [userData, setUserData] = useState([]);
-    const [selectedLogo, setSelectedLogo] = useState(null); // State for selected logo
-
-    // State for new user input fields
+    const [selectedLogo, setSelectedLogo] = useState(null);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedTime, setSelectedTime] = useState(new Date());
-    const [duration, setDuration] = useState('');
-
-    // For showing TimePicker
+    const [duration, setDuration] = useState(''); 
+    const [distance, setDistance] = useState(''); 
     const [showTimePicker, setShowTimePicker] = useState(false);
 
-    // Function to choose the logo
-    const chooseLogo = (logo) => {
-        setSelectedLogo(logo);
-    };
-
-    // Function to add new user
     const addUser = () => {
-        if (selectedLogo && selectedDate && selectedTime && duration) {
+        if (selectedLogo && selectedDate && selectedTime && duration && distance) {
             const newUser = {
-                id: userData.length + 1, // Auto-increment the ID based on the array length
+                id: userData.length + 1,
                 logo: selectedLogo,
-                date: selectedDate.toDateString(), // Convert to readable format
-                time: selectedTime.toLocaleTimeString(), // Convert to readable time format
-                duration: duration // Add duration
+                date: selectedDate.toDateString(),
+                time: selectedTime.toLocaleTimeString(),
+                duration: duration,
+                distance: distance
             };
 
             setUserData([...userData, newUser]);
-            // Reset the inputs after adding the user
             setSelectedLogo(null);
             setSelectedDate(new Date());
             setSelectedTime(new Date());
             setDuration('');
+            setDistance('');
         } else {
-            Alert.alert('Error', 'Please fill out all fields, select a logo, date, time, and duration');
+            Alert.alert('Error', 'Please fill out all fields');
         }
     };
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, padding: 20 }}>
             <Text style={{ fontSize: 24, marginBottom: 10 }}>Add New Training</Text>
 
             {/* Time Selection */}
             <Button title="Select starting time" onPress={() => setShowTimePicker(true)} />
-            {showTimePicker && (
+            {showTimePicker ? (
                 <DateTimePicker
                     value={selectedTime}
                     mode="time"
@@ -61,34 +54,35 @@ const UserForm = () => {
                         setSelectedTime(currentTime);
                     }}
                 />
-            )}
-            <Text style={{ marginBottom: 10 }}>Selected starting time: {selectedTime.toLocaleTimeString()}</Text>
+            ) : null}
+            
+            <Text style={{ marginBottom: 10 }}>
+                Selected starting time: {selectedTime.toLocaleTimeString()}
+            </Text>
 
             {/* Logo Selection */}
             <SetSkill setSelectedLogo={setSelectedLogo} />
 
             {/* Duration Input */}
-            <TextInput
-                placeholder="Duration (in hours)"
-                keyboardType="numeric"
-                value={duration}
-                onChangeText={(text) => setDuration(text)}
-                style={{ borderWidth: 1, marginBottom: 10, padding: 5 }}
-            />
+            <Duration duration={duration} onChangeDuration={setDuration} />
 
-            {/* Date Selection using ChooseDate component */}
+            {/** Distance Input */}
+            <Distance distance={distance} onChangeDistance={setDistance} />
+
+            {/* Date Selection */}
             <ChooseDate setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
 
-            {/* Add User Button */}
-            <Button title="Add User" onPress={addUser} />
+            {/* Add new training Button */}
+            <Button title="Add new training" onPress={addUser} />
 
-            {/* List of Users */}
+            {/* List of Trainings */}
             <Text style={{ fontSize: 20, marginVertical: 10 }}>Previous trainings</Text>
             <FlatList
                 data={userData}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
-                    <Text>{` Logo: ${item.logo}, Date: ${item.date}, Time: ${item.time}, Duration: ${item.duration} hours`}</Text>
+                    // This must be inside <Text> to avoid the "Text strings must be rendered..." error
+                    <Text>{`Logo: ${item.logo}, Date: ${item.date}, Time: ${item.time}, Duration: ${item.duration} hours, Distance: ${item.distance} `}</Text>
                 )}
             />
         </View>

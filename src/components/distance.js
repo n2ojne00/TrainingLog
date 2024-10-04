@@ -1,27 +1,23 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
-import { SafeAreaView, StyleSheet, Text, TextInput } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
 import React from 'react';
 
 
 
-export default function Distance() {
+export default function Distance({distance, onChangeDistance}) {
 
-        const [dist_number, onChangeDistance] = React.useState('');
 
     return (
     
-    <SafeAreaView>
-      
+      <View>
       <TextInput
         style={styles.input}
         onChangeText={onChangeDistance}
-        value={dist_number}
+        value={distance}
         placeholder="Distance"
         keyboardType="numeric"
       />
-      
-    </SafeAreaView>
-
+    </View>
     
     );
 

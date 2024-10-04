@@ -5,7 +5,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from 'react';
 
 
-export default function SetSkill({ setSelectedLogo }) { // Receive setSelectedLogo as a prop
+export default function SetSkill({ setSelectedLogo }) { 
 
   const [selectedButton, setSelectedButton] = useState(null);
 
@@ -53,25 +53,3 @@ export default function SetSkill({ setSelectedLogo }) { // Receive setSelectedLo
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    borderRadius: 7,
-  },
-  button: {
-    flex: 2,
-    backgroundColor: '#8f765f80',
-    alignItems: 'center',
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#352b23a6'
-
-  },
-  selectedButton: {
-    backgroundColor: '#584839a6', // Change this color as per your design
-  },
-  buttonText: {
-    marginTop: 5,
-    color: 'black',
-  },
-});

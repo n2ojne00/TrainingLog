@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import TrainingLog from './src/screens/traininglog';
 import FrontPage from './src/screens/frontpage';
 import Settings from './src/screens/settings';
-import { ICONS } from './src/styles.js/icons';
+import { ICONS } from './src/styles/icons';
 import { StyleSheet, Text } from 'react-native';
 import { View } from 'react-native';
 import UserForm from './src/screens/newtraining';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -24,7 +24,7 @@ export default function NavigationBar() {
         <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen
-                    name="Home"
+                    name="HOME"
                     component={HomeScreen}
                     options={{
                         headerTitle: () => homeIcon,
@@ -33,7 +33,7 @@ export default function NavigationBar() {
                     }} />
 
                 <Tab.Screen
-                    name="History"
+                    name="HISTORY"
                     component={History}
                     options={{
                         headerTitle: () => historyIcon,
@@ -41,7 +41,7 @@ export default function NavigationBar() {
                     }} />
 
                 <Tab.Screen
-                    name="Sport Log"
+                    name="NEW TRAINING"
                     component={LogTraining}
                     options={{
                         headerTitle: () => AddSportIcon,
@@ -50,7 +50,7 @@ export default function NavigationBar() {
                     }} />
 
                 <Tab.Screen
-                    name="Settings"
+                    name="SETTINGS"
                     component={SettingsPage}
                     options={{
                         headerTitle: () => settingsIcon,
@@ -97,6 +97,5 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5F5F5', // Light background color for screens
     },
 });

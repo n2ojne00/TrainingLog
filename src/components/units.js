@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RadioGroup from 'react-native-radio-buttons-group';
+import Converter from './unitConverter';
 
 export default function SetUnits() {
 
-    const [selectedUnit, setSelectedUnit] = useState();
+    const [selectedUnit, setSelectedUnit] = useState('1');
 
     return (
 
@@ -20,9 +21,10 @@ export default function SetUnits() {
                     selectedId={selectedUnit}
                 />
             </View>
+
+            <Text>HERE</Text>
     </View>
     );
-
 }
 
 const styles = StyleSheet.create({

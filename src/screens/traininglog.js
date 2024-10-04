@@ -4,6 +4,7 @@ import Distance from "../components/distance"
 import SetSkill from "../components/setSkill"
 import Duration from "../components/duration"
 
+//NO NEEDED IN THE APP
 
 export default function TrainingLog() {
 
