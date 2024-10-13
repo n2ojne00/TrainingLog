@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { styles } from "../styles/styles";
 
 export default function Converter() {
-    const [selectedUnit, setSelectedUnit] = useState('1');  // Unit selection: '1' for kilometers to miles, '2' for miles to kilometers
-    const [unitName, setUnitName] = useState('Kilometers');  // State to track the selected unit
+    const [selectedUnit, setSelectedUnit] = useState('kilometers'); 
+    const [distance, setDistance] = useState('');  
+    const [convertedDistance, setConvertedDistance] = useState(''); 
 
     // Function to handle unit change
     const handleUnitChange = (value) => {
-        if (value === '1') {
-            setUnitName('Miles');  // Set the unit name based on selection
-        } else if (value === '2') {
-            setUnitName('Kilometers');
+        setSelectedUnit(value);
+        setDistance(''); 
+        setConvertedDistance(''); 
+    };
+
+    // Function to handle distance unitInput
+    const handleDistanceChange = (value) => {
+        const numValue = parseFloat(value);
+        setDistance(value);
+
+        if (!isNaN(numValue)) {
+            // Convert based on the selected unit
+            if (selectedUnit === 'kilometers') {
+                setConvertedDistance(numValue / 0.621371); 
+            } else if (selectedUnit === 'miles') {
+                setConvertedDistance(numValue * 0.621371); 
+            }
+        } else {
+            setConvertedDistance(''); // Clear if unitInput is not a valid number
         }
     };
 
@@ -19,10 +36,7 @@ export default function Converter() {
         return (
             <TouchableOpacity
                 style={styles.radioContainer}
-                onPress={() => {
-                    setSelectedUnit(value);
-                    handleUnitChange(value); // Update unit name based on selection
-                }}
+                onPress={() => handleUnitChange(value)}
             >
                 <View style={styles.outerCircle}>
                     {selectedUnit === value && <View style={styles.innerCircle} />}
@@ -33,49 +47,22 @@ export default function Converter() {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styles.unitcontainer}>
             <Text style={styles.label}>Select Unit:</Text>
-            <RadioButton label="Kilometers to Miles" value="1" />
-            <RadioButton label="Miles to Kilometers" value="2" />
-            <Text style={styles.result}>Selected Unit: {unitName}</Text>
+            <RadioButton label="to Kilometers" value="kilometers" />
+            <RadioButton label="to Miles" value="miles" />
+
+            <TextInput
+                style={styles.unitInput}
+                placeholder={`Enter distance in ${selectedUnit}`}
+                value={distance}
+                onChangeText={handleDistanceChange}
+                keyboardType="numeric"
+            />
+
+            <Text style={styles.unitResult}>
+                {convertedDistance !== '' ? `Converted Distance: ${convertedDistance.toFixed(2)} ${selectedUnit === 'kilometers' ? 'km' : 'miles'}` : ''}
+            </Text>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        padding: 20,
-    },
-    label: {
-        fontSize: 16,
-        marginBottom: 5,
-    },
-    radioContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    outerCircle: {
-        height: 20,
-        width: 20,
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: 'gray',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 10,
-    },
-    innerCircle: {
-        height: 10,
-        width: 10,
-        borderRadius: 5,
-        backgroundColor: 'blue',
-    },
-    radioText: {
-        fontSize: 16,
-    },
-    result: {
-        fontSize: 20,
-        marginTop: 10,
-    },
-});

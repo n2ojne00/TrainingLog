@@ -1,11 +1,11 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
 import React from 'react';
+import { styles } from "../styles/styles";
 
 
 
 export default function Distance({distance, onChangeDistance}) {
-
 
     return (
     
@@ -23,11 +23,4 @@ export default function Distance({distance, onChangeDistance}) {
 
 };
 
-const styles = StyleSheet.create({
-  input: {
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
-  },
-});
+

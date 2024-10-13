@@ -1,55 +1,59 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from 'react';
-
+import { ICONS } from '../styles/icons';
+import { styles } from '../styles/styles';
 
 export default function SetSkill({ setSelectedLogo }) { 
 
   const [selectedButton, setSelectedButton] = useState(null);
+  
+  const skiIcon = ICONS.find(icon => icon.logoname === 'skiing').logo;
+  const runIcon = ICONS.find(icon => icon.logoname === 'running').logo;
+  const swimIcon = ICONS.find(icon => icon.logoname === 'swimming').logo;
 
-  const handlePress = (buttonIndex, logo) => {
+  const handlePress = (buttonIndex, logo, name) => {
     setSelectedButton(buttonIndex);
-    setSelectedLogo(logo); // Pass the selected logo to UserForm
-    console.log(`Button ${logo} is selected`);
+    setSelectedLogo({ logo, name }); // Pass both the icon and the name to UserForm
+    console.log(`Button ${name} is selected`);
   };
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 }}>
       {/* Ski Button */}
       <TouchableOpacity
-        onPress={() => handlePress(1, 'Ski')}
+        onPress={() => handlePress(1, skiIcon, 'Ski')}
         style={[
-          { padding: 10, borderWidth: 1, borderColor: selectedButton === 1 ? 'blue' : 'gray' },
+          styles.logobutton,
+          { borderColor: selectedButton === 1 ? '#ff5176' : '#697268' },
         ]}
       >
-        <MaterialIcons name="downhill-skiing" size={24} color="black" />
-        <Text>SKI</Text>
+        {skiIcon}
+        <Text>SKI</Text> 
       </TouchableOpacity>
 
       {/* Run Button */}
       <TouchableOpacity
-        onPress={() => handlePress(2, 'Run')}
+        onPress={() => handlePress(2, runIcon, 'Run')}
         style={[
-          { padding: 10, borderWidth: 1, borderColor: selectedButton === 2 ? 'blue' : 'gray' },
+          styles.logobutton,
+          { borderColor: selectedButton === 2 ? '#ff5176' : '#697268' },
         ]}
       >
-        <MaterialCommunityIcons name="run-fast" size={24} color="black" />
+        {runIcon}
         <Text>RUN</Text>
       </TouchableOpacity>
 
       {/* Swim Button */}
       <TouchableOpacity
-        onPress={() => handlePress(3, 'Swim')}
+        onPress={() => handlePress(3, swimIcon, 'Swim')}
         style={[
-          { padding: 10, borderWidth: 1, borderColor: selectedButton === 3 ? 'blue' : 'gray' },
+          styles.logobutton, 
+          { borderColor: selectedButton === 3 ? '#ff5176' : '#697268' },
         ]}
       >
-        <FontAwesome6 name="person-swimming" size={24} color="black" />
+        {swimIcon}
         <Text>SWIM</Text>
       </TouchableOpacity>
     </View>
   );
 }
-

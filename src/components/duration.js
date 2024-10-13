@@ -1,5 +1,6 @@
 import { View, StyleSheet, TextInput } from "react-native";
 import React from 'react';
+import { styles } from "../styles/styles";
 
 export default function Duration({ duration, onChangeDuration }) {
   
@@ -17,11 +18,4 @@ export default function Duration({ duration, onChangeDuration }) {
   );
 }
 
-const styles = StyleSheet.create({
-  input: {
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
-  },
-});
+

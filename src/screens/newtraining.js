@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import { View, Text, Button, FlatList, Alert } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { View, Text, Button, FlatList, Alert, TouchableOpacity } from 'react-native';
 import ChooseDate from '../components/calendar';
 import SetSkill from '../components/setSkill';
-import Duration from '../components/duration'; 
+import Duration from '../components/duration';
 import Distance from '../components/distance';
+import { styles } from '../styles/styles';
 
 const UserForm = () => {
     const [userData, setUserData] = useState([]);
     const [selectedLogo, setSelectedLogo] = useState(null);
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [selectedTime, setSelectedTime] = useState(new Date());
-    const [duration, setDuration] = useState(''); 
-    const [distance, setDistance] = useState(''); 
-    const [showTimePicker, setShowTimePicker] = useState(false);
+    const [duration, setDuration] = useState('');
+    const [distance, setDistance] = useState('');
+
 
     const addUser = () => {
-        if (selectedLogo && selectedDate && selectedTime && duration && distance) {
+        if (selectedLogo && selectedDate && duration && distance) {
             const newUser = {
                 id: userData.length + 1,
-                logo: selectedLogo,
+                logo: selectedLogo.logo,
+                name: selectedLogo.name,  
                 date: selectedDate.toDateString(),
-                time: selectedTime.toLocaleTimeString(),
                 duration: duration,
                 distance: distance
             };
@@ -29,7 +28,6 @@ const UserForm = () => {
             setUserData([...userData, newUser]);
             setSelectedLogo(null);
             setSelectedDate(new Date());
-            setSelectedTime(new Date());
             setDuration('');
             setDistance('');
         } else {
@@ -38,27 +36,8 @@ const UserForm = () => {
     };
 
     return (
-        <View style={{ flex: 1, padding: 20 }}>
+        <View>
             <Text style={{ fontSize: 24, marginBottom: 10 }}>Add New Training</Text>
-
-            {/* Time Selection */}
-            <Button title="Select starting time" onPress={() => setShowTimePicker(true)} />
-            {showTimePicker ? (
-                <DateTimePicker
-                    value={selectedTime}
-                    mode="time"
-                    display="default"
-                    onChange={(event, selectedTime) => {
-                        const currentTime = selectedTime || selectedTime;
-                        setShowTimePicker(false);
-                        setSelectedTime(currentTime);
-                    }}
-                />
-            ) : null}
-            
-            <Text style={{ marginBottom: 10 }}>
-                Selected starting time: {selectedTime.toLocaleTimeString()}
-            </Text>
 
             {/* Logo Selection */}
             <SetSkill setSelectedLogo={setSelectedLogo} />
@@ -66,14 +45,16 @@ const UserForm = () => {
             {/* Duration Input */}
             <Duration duration={duration} onChangeDuration={setDuration} />
 
-            {/** Distance Input */}
+            {/* Distance Input */}
             <Distance distance={distance} onChangeDistance={setDistance} />
 
             {/* Date Selection */}
             <ChooseDate setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
 
             {/* Add new training Button */}
-            <Button title="Add new training" onPress={addUser} />
+            <TouchableOpacity style={styles.addTrainingButton} onPress={addUser}>
+                <Text style={styles.buttonText}>Add new training</Text>
+            </TouchableOpacity>
 
             {/* List of Trainings */}
             <Text style={{ fontSize: 20, marginVertical: 10 }}>Previous trainings</Text>
@@ -81,8 +62,25 @@ const UserForm = () => {
                 data={userData}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
-                    // This must be inside <Text> to avoid the "Text strings must be rendered..." error
-                    <Text>{`Logo: ${item.logo}, Date: ${item.date}, Time: ${item.time}, Duration: ${item.duration} hours, Distance: ${item.distance} `}</Text>
+                    <View style={styles.itemContainer}>
+                        {/* Left Column - Logo */}
+                        <View style={styles.logoContainer}>
+                            {/* Render the logo */}
+                            {item.logo}
+                            <Text style={styles.nameText}>{item.name}</Text>
+                        </View>
+
+                        {/* Middle Column - Date and Duration */}
+                        <View style={styles.middleColumn}>
+                            <Text style={styles.dateText}>{item.date}</Text>
+                            <Text style={styles.durationText}>{item.duration} hours</Text>
+                        </View>
+
+                        {/* Right Column - Distance */}
+                        <View style={styles.rightColumn}>
+                            <Text style={styles.distanceText}>{item.distance}</Text>
+                        </View>
+                    </View>
                 )}
             />
         </View>

@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { Button, Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, Modal, Pressable, Text, View } from "react-native";
 import { Calendar } from "react-native-calendars";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { styles } from "../styles/styles";
+import { ICONS } from "../styles/icons";
 
 export default function ChooseDate({ setSelectedDate, selectedDate }) {
+
+    const calendarIcon = ICONS.find(icon => icon.logoname === 'calendar').logo;
+
     const [calendarVisible, setCalendarVisible] = useState(false);
 
     function dateSelected(day) {
@@ -27,33 +31,17 @@ export default function ChooseDate({ setSelectedDate, selectedDate }) {
                     <Button
                         title="Close calendar"
                         onPress={() => setCalendarVisible(false)}
+                        color='#ff6d8d'
                     />
                 </View>
             </Modal>
 
             <Pressable onPress={() => setCalendarVisible(true)} style={styles.setTime}>
-                <Text style={{ fontSize: 24 }}>
-                    <FontAwesome name="calendar" size={24} color="black" />
-                    {selectedDate ? selectedDate.toDateString() : ' Select date'}
+                
+                <Text style={{ fontSize: 20 }}>
+                {calendarIcon} {selectedDate ? selectedDate.toDateString() : ' Select date'}
                 </Text>
             </Pressable>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    calendarButton: {
-        height: '100%',
-        backgroundColor: "#473729a4",
-        justifyContent: 'center'
-    },
-    calendar: {
-        borderWidth: 2,
-    },
-    setTime: {
-        borderWidth: 1,
-        padding: 10,
-        marginBottom: 10,
-        borderRadius: 5,
-    },
-});
