@@ -1,13 +1,12 @@
 
-import { styles } from './src/styles/styles'; 
+import { styles } from './src/styles/styles';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import FrontPage from './src/screens/frontpage';
 import Settings from './src/screens/settings';
 import { ICONS } from './src/styles/icons';
-import { Text, View } from 'react-native';
-import UserForm from './src/screens/newtraining';
-import HistoryData from './src/screens/history';
+import { ImageBackground, Text, View } from 'react-native';
+import SportForm from './src/screens/newtraining';
 
 
 const Tab = createBottomTabNavigator();
@@ -22,71 +21,112 @@ export default function NavigationBar() {
 
     return (
         <NavigationContainer>
+
             <Tab.Navigator
-                screenOptions={{
-                    tabBarStyle: styles.tabBarStyle, 
-                    tabBarLabelStyle: styles.tabBarLabelStyle,
-                    tabBarActiveTintColor: '#4CAF50',
-                    tabBarInactiveTintColor: '#888',
-                }}>
+                screenOptions={({ route }) => ({
+                    tabBarStyle: styles.tabBarStyle,
+                    tabBarIcon: ({ focused }) => {
+                        let iconName;
+
+                        if (route.name === 'HOME') {
+                            iconName = homeIcon;
+                        } else if (route.name === 'HISTORY') {
+                            iconName = historyIcon;
+                        } else if (route.name === 'NEW TRAINING') {
+                            iconName = AddSportIcon;
+                        } else if (route.name === 'SETTINGS') {
+                            iconName = settingsIcon;
+                        }
+
+                        return (
+                            <View style={[styles.tabContainer, focused && styles.activeTab]}>
+                                {iconName}
+                                <Text style={[styles.tabBarLabelStyle, focused && styles.activeLabel]}>
+                                    {route.name}
+                                </Text>
+                            </View>
+                        );
+                    },
+                    tabBarLabel: () => null,
+                })}
+            >
                 <Tab.Screen
                     name="HOME"
                     component={HomeScreen}
                     options={{
-                        headerTitle: () => homeIcon,
-                        tabBarIcon: () => homeIcon,
-                    }} />
+                        headerTitle: 'Home',
+                    }}
+                />
                 <Tab.Screen
                     name="HISTORY"
                     component={History}
                     options={{
-                        headerTitle: () => historyIcon,
-                        tabBarIcon: () => historyIcon,
-                    }} />
+                        headerTitle: 'History',
+                    }}
+                />
                 <Tab.Screen
                     name="NEW TRAINING"
                     component={LogTraining}
                     options={{
-                        headerTitle: () => AddSportIcon,
-                        tabBarIcon: () => AddSportIcon,
-                    }} />
+                        headerTitle: 'New Training',
+                    }}
+                />
                 <Tab.Screen
                     name="SETTINGS"
                     component={SettingsPage}
                     options={{
-                        headerTitle: () => settingsIcon,
-                        tabBarIcon: () => settingsIcon,
-                    }} />
+                        headerTitle: 'Settings',
+                    }}
+                />
             </Tab.Navigator>
+
         </NavigationContainer>
     );
 }
 
-// Sample screens
+
 const HomeScreen = () => (
-    <View style={styles.screenContainer}>
-        <Text style={styles.screenTitle}>Home Screen</Text>
-        <FrontPage />
-    </View>
+    <ImageBackground
+        source={require('./src/assets/forest.jpg')}
+        style={styles.background}
+    >
+        <View style={styles.screenContainer}>
+            <Text style={styles.screenTitle}>Home</Text>
+            <FrontPage />
+        </View>
+    </ImageBackground>
 );
 
 const History = () => (
-    <View style={styles.screenContainer}>
-        <Text style={styles.screenTitle}>History Screen</Text>
-        <HistoryData/>
-    </View>
+    <ImageBackground
+        source={require('./src/assets/forest.jpg')}
+        style={styles.background}
+    >
+        <View style={styles.screenContainer}>
+            <Text style={styles.screenTitle}>History</Text>
+        </View>
+    </ImageBackground>
 );
 
 const LogTraining = () => (
-    <View style={styles.screenContainer}>
-        <Text style={styles.screenTitle}></Text>
-        <UserForm />
-    </View>
+    <ImageBackground
+        source={require('./src/assets/forest.jpg')}
+        style={styles.background}
+    >
+        <View style={styles.screenContainer}>
+            <SportForm/>
+        </View>
+    </ImageBackground>
 );
 
 const SettingsPage = () => (
-    <View style={styles.screenContainer}>
-        <Text style={styles.screenTitle}>Settings Screen</Text>
-        <Settings />
-    </View>
+    <ImageBackground
+        source={require('./src/assets/forest.jpg')}
+        style={styles.background}
+    >
+        <View style={styles.screenContainer}>
+            <Text style={styles.screenTitle}>Settings</Text>
+            <Settings />
+        </View>
+    </ImageBackground>
 );

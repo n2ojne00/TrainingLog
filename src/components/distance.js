@@ -1,5 +1,4 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
+import { TextInput, View } from "react-native";
 import React from 'react';
 import { styles } from "../styles/styles";
 

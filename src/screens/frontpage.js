@@ -1,10 +1,11 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { styles } from "../styles/styles";
 
 export default function FrontPage() {
     return (
 
-        <View style={[styles.container, { flexDirection: 'row' }]}>
-            <Text>
+        <View>
+            <Text style={styles.frontpage}>
             Your journey to peak performance starts here! 
             With our app, you can effortlessly track your training sessions, 
             analyze your history, and stay motivated every step of the way. 
@@ -15,13 +16,3 @@ export default function FrontPage() {
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        width: '90%',
-        justifyContent: 'center'
-    },
-    box: {
-        margin: '10%',
-        padding: 10
-    }
-})

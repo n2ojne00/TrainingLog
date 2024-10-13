@@ -13,46 +13,45 @@ export default function SetSkill({ setSelectedLogo }) {
 
   const handlePress = (buttonIndex, logo, name) => {
     setSelectedButton(buttonIndex);
-    setSelectedLogo({ logo, name }); // Pass both the icon and the name to UserForm
-    console.log(`Button ${name} is selected`);
+    setSelectedLogo({ logo, name });
   };
 
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 }}>
       {/* Ski Button */}
       <TouchableOpacity
-        onPress={() => handlePress(1, skiIcon, 'Ski')}
+        onPress={() => handlePress(1, skiIcon, 'Skiing')}
         style={[
           styles.logobutton,
-          { borderColor: selectedButton === 1 ? '#ff5176' : '#697268' },
+          { borderColor: selectedButton === 1 ? '#55e00a' : '#697268' },
         ]}
       >
         {skiIcon}
-        <Text>SKI</Text> 
+        <Text>SKIING</Text> 
       </TouchableOpacity>
 
       {/* Run Button */}
       <TouchableOpacity
-        onPress={() => handlePress(2, runIcon, 'Run')}
+        onPress={() => handlePress(2, runIcon, 'Running')}
         style={[
           styles.logobutton,
-          { borderColor: selectedButton === 2 ? '#ff5176' : '#697268' },
+          { borderColor: selectedButton === 2 ? '#55e00a': '#697268' },
         ]}
       >
         {runIcon}
-        <Text>RUN</Text>
+        <Text>RUNNING</Text>
       </TouchableOpacity>
 
       {/* Swim Button */}
       <TouchableOpacity
-        onPress={() => handlePress(3, swimIcon, 'Swim')}
+        onPress={() => handlePress(3, swimIcon, 'Swimming')}
         style={[
           styles.logobutton, 
-          { borderColor: selectedButton === 3 ? '#ff5176' : '#697268' },
+          { borderColor: selectedButton === 3 ? '#55e00a' : '#697268' },
         ]}
       >
         {swimIcon}
-        <Text>SWIM</Text>
+        <Text>SWIMMING</Text>
       </TouchableOpacity>
     </View>
   );

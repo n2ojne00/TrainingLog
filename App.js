@@ -1,13 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import NavigationBar from './Navigation';
 
 
 
 
 export default function App() {
+
+  const image = {}
+
   return (
     <View style={styles.container}>
+      <ImageBackground source={('./assets/forest.jpg')}></ImageBackground>
    
      <NavigationBar/>
       

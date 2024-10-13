@@ -4,14 +4,24 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
+      background: {
+        flex: 1,
+        width: '100%',
+        alignItems: 'center', 
+      },
+
+      frontpage: {
+        fontSize: 20
+      },
+    
 
     //NAVIGATION
     screenContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fffaf6',
+        backgroundColor: '#ffffffe0',
         padding: 20,
+        width: '85%'
     },
     screenTitle: {
         fontSize: 24,
@@ -19,50 +29,65 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
     },
     tabBarStyle: {
-        backgroundColor: '#ffffff', //NAVBAR COLOR
+        backgroundColor: '#f9fff5fa', //NAVBAR COLOR
         height: 60,
+        padding: 5,
+        borderTopWidth: 1,
+        borderTopColor: '#246600ff',
     },
     tabBarLabelStyle: {
         fontSize: 15,
         color: '#000000',
+    },
+    tabContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingBottom: 5, 
+        width: '100%'
+    },
+    activeTab: {
+        borderBottomWidth: 5,
+        borderBottomColor: '#45c500ff',  
+    },
+    activeLabel: {
+        color: '#45c500ff',
+        fontWeight: 'bold'
     },
     navLogos: {
         fontSize: 30,
         color: '#000000'
     },
 
-
-    //distance and duration input
+    //DISTANCE AND DURATION INPUTS
     input: {
         borderWidth: 1,
-        borderColor: '#697268',
+        borderColor: '#6F7573',
         padding: 10,
         marginBottom: 10,
         borderRadius: 5,
+        backgroundColor: '#ffffff'
+    },
+
+    inputdesc: {
+        fontWeight: 'bold',
     },
 
     //CALENDAR STYLING
     calendarButton: {
         height: '100%',
-        backgroundColor: '#ffe6eb77',
+        backgroundColor: '#ebfde188',
         justifyContent: 'center',
-
-    },
-    calendar: {
-        borderWidth: 2,
     },
     setTime: {
         borderWidth: 1,
         padding: 10,
         marginBottom: 10,
         borderRadius: 5,
-        borderColor: '#697268',
-        backgroundColor: '#ffbfcd',
-
+        borderColor: '#6F7573',
+        backgroundColor: '#ebfde1',
     },
 
     //UNIT CONVERTION
-
     unitcontainer: {
         padding: 20,
     },
@@ -80,7 +105,7 @@ export const styles = StyleSheet.create({
         width: 20,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: '#697268',
+        borderColor: '#6F7573',
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 10,
@@ -89,14 +114,14 @@ export const styles = StyleSheet.create({
         height: 10,
         width: 10,
         borderRadius: 5,
-        backgroundColor: '#ff5277',
+        backgroundColor: '#359203',
     },
     radioText: {
         fontSize: 16,
     },
     unitInput: {
         height: 40,
-        borderColor: '#697268',
+        borderColor: '#6F7573',
         borderWidth: 1,
         marginBottom: 10,
         paddingLeft: 10,
@@ -106,38 +131,42 @@ export const styles = StyleSheet.create({
         fontSize: 16,
     },
 
-
+//SKILL LOGO STYLING
     logobutton: {
         padding: 10,
         margin: 7,
         borderWidth: 2,
-        width: 80,
-        alignItems: 'center'
+        width: 85,
+        borderRadius: 8,
+        alignItems: 'center',
+        backgroundColor: '#ffffff'
     },
     skillIconStyle: {
         color: 'black',
-        fontSize: 35
+        fontSize: 40
     },
 
+//ADD TRAINING BUTTON
     addTrainingButton: {
-        backgroundColor: '#ffbfcd',
-        padding: 10,
-        alignSelf: 'center',
+        backgroundColor: '#d2ffb9',
+        paddingVertical: 10,
+        paddingHorizontal: 80,
         borderWidth: 1,
-        borderColor: '#697268',
-        borderRadius: 8
+        borderColor: '#6F7573',
+        borderRadius: 8,
+        alignSelf: 'center',
+
     },
 
     // FLATLIST FOR TRAINING HISTORY
-
     itemContainer: {
         flexDirection: 'row',
         marginVertical: 5,
         borderRadius: 8,
-        backgroundColor: '#ffcdd8',
+        backgroundColor: '#ebfde1',
         alignItems: 'stretch',
         height: 100,
-        elevation: 2, // Elevation for Android shadow
+        elevation: 2,
     },
 
     logoContainer: {

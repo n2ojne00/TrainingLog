@@ -31,7 +31,7 @@ export default function ChooseDate({ setSelectedDate, selectedDate }) {
                     <Button
                         title="Close calendar"
                         onPress={() => setCalendarVisible(false)}
-                        color='#ff6d8d'
+                        color='#359203'
                     />
                 </View>
             </Modal>
