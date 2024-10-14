@@ -3,15 +3,15 @@ import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { styles } from "../styles/styles";
 
 export default function Converter() {
-    const [selectedUnit, setSelectedUnit] = useState('kilometers'); 
-    const [distance, setDistance] = useState('');  
-    const [convertedDistance, setConvertedDistance] = useState(''); 
+    const [selectedUnit, setSelectedUnit] = useState('kilometers');
+    const [distance, setDistance] = useState('');
+    const [convertedDistance, setConvertedDistance] = useState('');
 
     // Function to handle unit change
     const handleUnitChange = (value) => {
         setSelectedUnit(value);
-        setDistance(''); 
-        setConvertedDistance(''); 
+        setDistance('');
+        setConvertedDistance('');
     };
 
     // Function to handle distance unitInput
@@ -22,9 +22,9 @@ export default function Converter() {
         if (!isNaN(numValue)) {
             // Convert based on the selected unit
             if (selectedUnit === 'kilometers') {
-                setConvertedDistance(numValue / 0.621371); 
+                setConvertedDistance(numValue / 0.621371);
             } else if (selectedUnit === 'miles') {
-                setConvertedDistance(numValue * 0.621371); 
+                setConvertedDistance(numValue * 0.621371);
             }
         } else {
             setConvertedDistance(''); // Clear if unitInput is not a valid number

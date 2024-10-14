@@ -1,0 +1,42 @@
+const sportData = [
+    {
+        id: 1,
+        logo: '⛷️',
+        name: 'Skiing',
+        date: '2024-01-15',
+        duration: '02:30:00',
+        distance: 35.4,
+    },
+    {
+        id: 2,
+        logo: '🏊',
+        name: 'Swim',
+        date: '2024-02-10',
+        duration: '01:15:00',
+        distance: 3.0,
+    },
+    {
+        id: 3,
+        logo: '🏃',
+        name: 'Run',
+        date: '2024-03-01',
+        duration: '03:45:00',
+        distance: 42.2,
+    },
+    {
+        id: 4,
+        logo: '⛷️',
+        name: 'Skiing',
+        date: '2024-01-20',
+        duration: '04:00:00',
+        distance: 50.0,
+    },
+    {
+        id: 5,
+        logo: '🏃',
+        name: 'Run',
+        date: '2024-04-12',
+        duration: '02:10:00',
+        distance: 21.5,
+    },
+];

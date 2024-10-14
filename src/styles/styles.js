@@ -1,27 +1,25 @@
-// styles.js
-
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
-      background: {
+    background: {
         flex: 1,
         width: '100%',
-        alignItems: 'center', 
-      },
+        alignItems: 'center',
+    },
 
-      frontpage: {
+    frontpage: {
         fontSize: 20
-      },
-    
+    },
+
 
     //NAVIGATION
     screenContainer: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#ffffffe0',
+        backgroundColor: '#f1f1f1e0',
         padding: 20,
-        width: '85%'
+        width: '90%'
     },
     screenTitle: {
         fontSize: 24,
@@ -42,12 +40,12 @@ export const styles = StyleSheet.create({
     tabContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        paddingBottom: 5, 
+        paddingBottom: 5,
         width: '100%'
     },
     activeTab: {
         borderBottomWidth: 5,
-        borderBottomColor: '#45c500ff',  
+        borderBottomColor: '#45c500ff',
     },
     activeLabel: {
         color: '#45c500ff',
@@ -131,7 +129,7 @@ export const styles = StyleSheet.create({
         fontSize: 16,
     },
 
-//SKILL LOGO STYLING
+    //SKILL LOGO STYLING
     logobutton: {
         padding: 10,
         margin: 7,
@@ -146,7 +144,7 @@ export const styles = StyleSheet.create({
         fontSize: 40
     },
 
-//ADD TRAINING BUTTON
+    //ADD TRAINING BUTTON
     addTrainingButton: {
         backgroundColor: '#d2ffb9',
         paddingVertical: 10,
@@ -167,6 +165,7 @@ export const styles = StyleSheet.create({
         alignItems: 'stretch',
         height: 100,
         elevation: 2,
+        width: '100%'
     },
 
     logoContainer: {
@@ -212,7 +211,12 @@ export const styles = StyleSheet.create({
 
     },
 
+    totalTitle: {
+        fontSize: 16,
+    },
 
-
+    totalText: {
+        fontSize: 14,
+    },
 
 });

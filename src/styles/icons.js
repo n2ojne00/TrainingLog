@@ -22,7 +22,7 @@ export const ICONS = [
     },
     {
         logoname: 'calendar',
-        logo: <FontAwesome name="calendar" style={styles.navLogos}/>
+        logo: <FontAwesome name="calendar" style={styles.navLogos} />
     },
     {
         logoname: 'home',
@@ -32,18 +32,18 @@ export const ICONS = [
     //SKILLS
     {
         logoname: 'skiing',
-        logo: <MaterialIcons name="downhill-skiing" style={styles.skillIconStyle}  />
+        logo: <MaterialIcons name="downhill-skiing" style={styles.skillIconStyle} />
     },
     {
         logoname: 'running',
-        logo: <MaterialCommunityIcons name="run-fast" style={styles.skillIconStyle}  />
+        logo: <MaterialCommunityIcons name="run-fast" style={styles.skillIconStyle} />
     },
     {
         logoname: 'swimming',
-        logo: <FontAwesome6 name="person-swimming" style={styles.skillIconStyle}  />
+        logo: <FontAwesome6 name="person-swimming" style={styles.skillIconStyle} />
     },
-    
-   
-   
-   
+
+
+
+
 ]

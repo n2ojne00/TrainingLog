@@ -1,19 +1,16 @@
-
 import { styles } from './src/styles/styles';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import FrontPage from './src/screens/frontpage';
-import Settings from './src/screens/settings';
 import { ICONS } from './src/styles/icons';
 import { ImageBackground, Text, View } from 'react-native';
+import FrontPage from './src/screens/frontpage';
+import Settings from './src/screens/settings';
 import SportForm from './src/screens/newtraining';
 
 
 const Tab = createBottomTabNavigator();
 
 export default function NavigationBar() {
-
-    // Find the 'settings' logo from ICONS array
     const settingsIcon = ICONS.find(icon => icon.logoname === 'settings').logo;
     const historyIcon = ICONS.find(icon => icon.logoname === 'historybook').logo;
     const AddSportIcon = ICONS.find(icon => icon.logoname === 'setSkill').logo;
@@ -21,7 +18,6 @@ export default function NavigationBar() {
 
     return (
         <NavigationContainer>
-
             <Tab.Navigator
                 screenOptions={({ route }) => ({
                     tabBarStyle: styles.tabBarStyle,
@@ -59,31 +55,29 @@ export default function NavigationBar() {
                 />
                 <Tab.Screen
                     name="HISTORY"
-                    component={History}
+                    component={HistoryScreen}
                     options={{
                         headerTitle: 'History',
                     }}
                 />
                 <Tab.Screen
                     name="NEW TRAINING"
-                    component={LogTraining}
+                    component={NewTrainingScreen}
                     options={{
                         headerTitle: 'New Training',
                     }}
                 />
                 <Tab.Screen
                     name="SETTINGS"
-                    component={SettingsPage}
+                    component={SettingsScreen}
                     options={{
                         headerTitle: 'Settings',
                     }}
                 />
             </Tab.Navigator>
-
         </NavigationContainer>
     );
 }
-
 
 const HomeScreen = () => (
     <ImageBackground
@@ -96,8 +90,7 @@ const HomeScreen = () => (
         </View>
     </ImageBackground>
 );
-
-const History = () => (
+const HistoryScreen = () => (
     <ImageBackground
         source={require('./src/assets/forest.jpg')}
         style={styles.background}
@@ -108,18 +101,19 @@ const History = () => (
     </ImageBackground>
 );
 
-const LogTraining = () => (
+const NewTrainingScreen = () => (
     <ImageBackground
         source={require('./src/assets/forest.jpg')}
         style={styles.background}
     >
         <View style={styles.screenContainer}>
-            <SportForm/>
+            <SportForm />
         </View>
     </ImageBackground>
 );
 
-const SettingsPage = () => (
+
+const SettingsScreen = () => (
     <ImageBackground
         source={require('./src/assets/forest.jpg')}
         style={styles.background}

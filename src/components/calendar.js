@@ -37,9 +37,8 @@ export default function ChooseDate({ setSelectedDate, selectedDate }) {
             </Modal>
 
             <Pressable onPress={() => setCalendarVisible(true)} style={styles.setTime}>
-                
                 <Text style={{ fontSize: 20 }}>
-                {calendarIcon} {selectedDate ? selectedDate.toDateString() : ' Select date'}
+                    {calendarIcon} {selectedDate ? selectedDate.toDateString() : ' Select date'}
                 </Text>
             </Pressable>
         </View>
